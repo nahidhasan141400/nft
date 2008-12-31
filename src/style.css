@@ -1,0 +1,378 @@
+:root {
+  --lightBGclor: linear-gradient(
+    0deg,
+    rgb(143, 167, 255) 0%,
+    rgb(250, 255, 254) 100%
+  );
+  --darkBGclor: linear-gradient(
+    0deg,
+    rgb(94, 0, 125) 0%,
+    rgb(0, 105, 116) 100%
+  );
+  --bol: linear-gradient(45deg, rgb(255, 24, 124) 0%, rgb(0, 208, 255) 100%);
+
+  --bod: linear-gradient(45deg, rgb(18, 0, 111) 0%, rgb(208, 0, 0) 100%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  outline: none;
+  transition: all 0.1s;
+}
+::selection {
+  background: transparent;
+}
+
+body {
+  background: var(--lightBGclor);
+  height: 100vh;
+  overflow: hidden;
+}
+/* .back-rotat */
+.back-rotat {
+  content: "";
+  height: 500px;
+  width: 500px;
+  border-radius: 50%;
+  background: var(--bol);
+  position: absolute;
+  z-index: -1;
+  bottom: -210px;
+  left: -200px;
+}
+.dark .back-rotat {
+  background: var(--bod);
+}
+
+/* nav start */
+nav {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+}
+#logo {
+  display: flex;
+  align-items: center;
+}
+#logo img {
+  height: 50px;
+}
+#logo h1 {
+  font-size: 40px;
+  color: rgb(0, 218, 218);
+}
+
+/* togel swicth */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("img/day.png");
+  background-repeat: no-repeat, repeat;
+  background-size: cover;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  box-shadow: inset 1px 1px 4px black;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  display: block;
+  background-color: rgb(242, 255, 0);
+  box-shadow: 1px 1px 4px black;
+  background-size: cover;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-image: url("img/night.png");
+  box-shadow: inset 1px 1px 4px rgb(255, 255, 255);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+  background-color: rgb(151, 217, 255);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* main body */
+#body-main {
+  height: 90%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 10fr;
+}
+
+/* social start */
+#body-main .social {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+#body-main .social ol {
+  list-style: none;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#body-main .social ol li {
+  height: 50px;
+  width: 50px;
+  border: 2px solid blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+#body-main .social ol li a i {
+  font-size: 20px;
+  color: tomato;
+  text-shadow: 0 0 2px black;
+}
+.dark #body-main .social ol li a i {
+  color: aqua;
+}
+
+#body-main .social ol li:hover {
+  transform: scale(110%);
+}
+
+/* main body start */
+#body-main #body {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+#body-main #body .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+#body-main #body .text h1 {
+  font-size: 50px;
+  text-transform: uppercase;
+  color: tomato;
+  padding: 10px 0;
+}
+#body-main #body .text h1 span {
+  color: blue;
+}
+
+.dark #body-main #body .text h1 {
+  color: aqua;
+}
+.dark #body-main #body .text h1 span {
+  color: tomato;
+}
+#body-main #body .text p {
+  font-size: 25px;
+  font-weight: 400;
+  color: purple;
+  padding: 10px 150px 60px 0;
+}
+.dark #body-main #body .text p {
+  color: gainsboro;
+}
+#body-main #body .text button {
+  height: 70px;
+  width: 300px;
+  font-size: 30px;
+  font-weight: bolder;
+  background-color: rgba(196, 196, 196, 0.393);
+  backdrop-filter: blur(5px);
+  color: tomato;
+  border-radius: 10px;
+  border: 2px solid blue;
+  text-shadow: 0 0 2px black;
+  box-shadow: 2px 2px 5px black;
+  transition: all 0.3s;
+}
+#body-main #body .text button:hover {
+  transform: scale(102%);
+}
+.dark #body-main #body .text button {
+  color: aqua;
+  border: 2px solid cyan;
+}
+
+#body-main #body .text button i {
+  color: #007894;
+  font-size: 40px;
+  text-shadow: 0 0 2px cyan;
+  transition: all 0.5s ease-in-out;
+  transform: translateY(0px);
+  animation: bounce 1s infinite;
+}
+.dark #body-main #body .text button i {
+  color: #215caf;
+}
+
+@keyframes bounce {
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* text end */
+/* card */
+#body-main #body .card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+#body-main #body .card-body #card-out {
+  height: 300px;
+  width: 450px;
+  position: relative;
+}
+
+#body-main #body .card-body #card-out::after {
+  content: "";
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  background: var(--bol);
+  position: absolute;
+  z-index: -0;
+  bottom: 100px;
+  left: -20px;
+}
+.dark #body-main #body .card-body #card-out::after {
+  background: var(--bod);
+}
+
+#body-main #body .card-body .card {
+  height: 300px;
+  width: 450px;
+  border-radius: 15px;
+  backdrop-filter: blur(30px);
+  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.633);
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+#body-main #body .card-body .card .top {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  color: rgb(45, 69, 69);
+}
+.dark #body-main #body .card-body .card .top {
+  color: lightgray;
+}
+#body-main #body .card-body .card .img {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-image: url("img/eth-logo-animated.gif");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1;
+  filter: invert(100%);
+}
+#body-main #body .card-body .card .img {
+  background-image: url("img/eth-logo-animated.gif");
+  filter: invert(0%);
+}
+
+#body-main #body .card-body .card #chip {
+  position: absolute;
+  left: 30px;
+  top: 35%;
+  height: 80px;
+}
+
+#body-main #body .card-body .card #buttom {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+}
+#body-main #body .card-body .card #buttom button {
+  width: 50%;
+  height: 90%;
+  border: none;
+  background: none;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: rgb(45, 69, 69);
+  letter-spacing: 3px;
+  transition: all 0.3s;
+  border-radius: 30px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.dark #body-main #body .card-body .card #buttom button {
+  color: lightgray;
+}
+#body-main #body .card-body .card #buttom button:hover {
+  border: 2px solid red;
+  background: rgba(245, 245, 245, 0.352);
+  padding: 0 10px;
+  letter-spacing: 1px;
+  color: red;
+}
+
+@media (max-width: 950px) {
+  * {
+    display: none;
+  }
+}
