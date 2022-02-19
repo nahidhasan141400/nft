@@ -23,7 +23,7 @@
   transition: all 0.1s;
 }
 ::selection {
-  background: transparent;
+  background: rgba(135, 207, 235, 0.171);
 }
 
 body {
