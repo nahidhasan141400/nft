@@ -1,6 +1,6 @@
 function go (){
     console.log(window.location);
-    window.location.href = "/phone.html";
+    window.location.href = "/nft/phone.html";
 }
 console.dir(Window);
 
